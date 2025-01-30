@@ -1,0 +1,23 @@
+# Arquivos compilados
+__pycache__/
+*.py[cod]
+
+# Configurações do ambiente
+.env
+*.env
+
+# Arquivos de logs
+logs/
+*.log
+
+# Dependências do Python
+*.egg-info/
+dist/
+build/
+
+# Editor e sistema
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
