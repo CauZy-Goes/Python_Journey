@@ -1,0 +1,17 @@
+Cpython : interpretador do python/ compilador
+
+Python -> Cpython -> BInario
+
+1 - AMBIENTE
+
+- python -m venv venv = vitual enviroment
+- venv/Scripts/Activate/
+
+2 - VARIAVEIS
+
+Memoria, guardar informações. 
+Memoria ram = memoria de curto prazo : rapida.
+HD e SSD = memoria de longo prazo : lenta.
+
+
+3 - 
