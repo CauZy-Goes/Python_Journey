@@ -4,14 +4,67 @@ Python -> Cpython -> BInario
 
 1 - AMBIENTE
 
-- python -m venv venv = vitual enviroment
-- venv/Scripts/Activate/
+    python -m venv venv = vitual enviroment
+    venv/Scripts/Activate/
 
 2 - VARIAVEIS
 
-Memoria, guardar informações. 
-Memoria ram = memoria de curto prazo : rapida.
-HD e SSD = memoria de longo prazo : lenta.
+    Memoria, guardar informações. 
+    Memoria ram = memoria de curto prazo : rapida. Tempo de execução
+    HD e SSD = memoria de longo prazo : lenta.
+
+3 - Tipos De Dados
+
+    Int: (-4,12,-1,1000), sem casas decimais
+    Float: (-5.4, 100.202), obrigatoio ter ponto
+    String: "Texto", conjunto de caracteres
+    Bool: False, True
+
+4 - Conversao de Dados
+
+    stringtres = '3'
+    intUm  = 12
+    print(intUm + int(stringtres))
+
+5 - Operadores
+
+    (- + / // % * ** +=)
+    print(6.6 // 2) = divisao que retornar inteiro
+    print(11 ** 2) = potencia, 11 elevado a 2
+
+    (< > == !=)
+
+    (and or not)
+
+6 - Estrutura de Repetiçao
+
+    for in range(valor minimo, valor maximo, numero de casas que ele pula)
+    : for in range(2, 10 , 2) = 2,4,6,8,10
+
+    while true :
+        break;
+
+7 - Listas
+
+    notas = [10,12,12,22]
+
+    notas.append(2) = add
+    len(notas) = tamanho
+
+8 - Dicionarios
+
+    pessoas = {
+        'nome' : 'marcos,
+        'idade': 38,
+        'altura': 1.78
+    }
+
+    pessoa['nome'] = rafael
+    pessoa.get('cpf', 'essas chave nao existe')
+
+     pessoas = [] = Lista
+
+    dicionario = {'nome':nome, 'idade':idade}
+    pessoas.append(dicionario)  
 
 
-3 - 
