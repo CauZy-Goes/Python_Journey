@@ -1,0 +1,39 @@
+# Ignore o ambiente virtual
+env/
+venv/
+*.venv/
+
+# Ignore arquivos compilados do Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore configurações do editor
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignore arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignore dependências instaladas
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore logs e arquivos temporários
+*.log
+debug.log
+*.tmp
+
+# Ignore banco de dados SQLite
+db.sqlite3
+*.sqlite3
+
+# Ignore migrações que não foram aplicadas
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Ignore arquivos de credenciais
+env.json
+.env

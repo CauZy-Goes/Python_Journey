@@ -1,0 +1,52 @@
+1 - Inicializando o ambiente
+
+    python -m venv venv
+    venv/Scripts/Activate 
+    pip install django
+    django-admin startproject core .
+    python manage.py runserver = inicia a aplicacação
+
+2 - MVC
+
+    Model = Back, Entidades
+    Controller = Conecta Front E Back
+    View = Front, Telas
+
+3 - App Alunos
+
+    python manage.py startapp alunos
+    adicionar ele no setting.py e o template
+
+    TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'alunos',
+]
+
+4 - Banco De Dados
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+5 - admin
+    python manage.py createsuperuser

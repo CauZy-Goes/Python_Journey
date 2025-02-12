@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <br><br>
+    <div class="container">
+        <h1>Cadastre um aluno!</h1>
+        {% if status == '1'%}
+            <div class="alert alert-danger" role="alert">
+                Nome ou Idade Invalido
+            </div>
+        {% elif status == '0'%}
+            <div class="alert alert-success" role="alert">
+                Dados cadastrados com sucesso
+            </div> 
+        {% endif %}
+        <hr>
+        <form action="{% url 'criar_aluno' %}" method="post"> {%  csrf_token %}
+            <label for="">Nome:</label>
+            <input type="text" name="nome", class="form-control" placeholder="Digite Seu Nome">
+            <br>
+
+            <label for="">Idade:</label>
+            <input type="number" name="idade", class="form-control" placeholder="Digite Sua Idade">
+            <br>
+
+            <label for="">Email:</label>
+            <input type="email" name="email", class="form-control" placeholder="Digite Seu Email">
+            <br>
+            <input type="submit" class="btn btn-success">
+        </form>
+
+        <hr>
+        
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="Nome">Nome</th>
+                <th scope="Email">Idade</th>
+                <th scope="Idade">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in alunos %}
+                <tr>
+                    <td>{{i.nome}}</td>
+                    <td>{{i.idade}}</td>
+                    <td>{{i.email}}</td>
+                    <td><a href="/aluno/deletar_aluno/{{i.id}}" class="btn btn-danger">Excluir</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
