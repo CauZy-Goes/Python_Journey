@@ -27,11 +27,22 @@ def start_listening(callback):
 def show_key(key):
     """Show the pressed key."""
     try:
-        print(f"Key: {key} | Key Char: '{key.char}'")
+        tecla = key.char
     except AttributeError:
-        print(f"Key: {key} | Key Name: {key.name}")
+        tecla = key.name
+ 
+    print(f"Tecla pressionada: {tecla}")
 
-    if key == keyboard.Key.esc:
+    try:
+        registro = KeyHistory(key=str(tecla), press_time=datetime.now())
+        save(registro)
+        logger.debug(f"Registro salvo: {registro.id}")
+    except Exception:
+        # logger.exception já inclui o stack trace no log,
+        # sem precisar imprimir manualmente
+        logger.exception("Falha ao salvar o registro de tecla")
+
+    if tecla == "esc":
         print("\nESC pressed. Ending...")
         return False
 
