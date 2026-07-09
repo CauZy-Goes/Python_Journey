@@ -1,6 +1,8 @@
 from Service.keyboard_listener import start_listening, show_key
 from Model.key_history import KeyHistory
 
+
+print(__name__ )
 if __name__ == "__main__":
     start_listening(show_key)   # troca aqui pra escolher o comportamento
 
