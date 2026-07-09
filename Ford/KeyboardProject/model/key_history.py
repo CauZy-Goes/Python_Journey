@@ -35,3 +35,11 @@ class KeyHistory:
             f"press_time={self.press_time:%d/%m/%Y %H:%M:%S}, "
             f"ip_address='{self.ip_address}')"
         )
+    
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "key": self.key,
+            "press_time": self.press_time.isoformat(),
+            "ip_address": self.ip_address,
+        }
