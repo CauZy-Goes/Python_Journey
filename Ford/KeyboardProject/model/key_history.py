@@ -23,11 +23,11 @@ class KeyHistory:
     key: str
     press_time: datetime = field(default_factory=datetime.now)
     ip_address: str = field(default_factory=get_local_ip)
-    id: str = field(init=False)
+    id: Optional[int] = field(default=None)  # preenchido pelo banco após o insert
  
-    def __post_init__(self):
-        # Gera o ID a partir do press_time no formato HHMMDDMMYYYY
-        self.id = self.press_time.strftime("%H%M%d%m%Y")
+    # def __post_init__(self):
+    #     # Gera o ID a partir do press_time no formato HHMMDDMMYYYY
+    #     self.id = self.press_time.strftime("%H%M%d%m%Y")
  
     def __repr__(self):
         return (
