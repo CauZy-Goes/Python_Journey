@@ -7,6 +7,7 @@ Model que representa o histórico de uma tecla pressionada.
 import socket
 from dataclasses import dataclass, field
 from datetime import datetime
+from typing import Optional  
  
  
 def get_local_ip() -> str:

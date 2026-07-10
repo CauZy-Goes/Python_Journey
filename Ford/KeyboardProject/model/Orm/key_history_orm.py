@@ -14,7 +14,7 @@ ORM, o dataclass da aplicação não precisa mudar).
 from sqlalchemy import DateTime, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from config.database import Base
+from Config.database import Base
 
 
 class KeyHistoryORM(Base):

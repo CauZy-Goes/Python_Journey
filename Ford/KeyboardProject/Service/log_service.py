@@ -18,9 +18,9 @@ from datetime import datetime
 from pathlib import Path
  
 from Model.key_history import KeyHistory
-from Model.orm.key_history_orm import KeyHistoryORM
-from config.database import SessionLocal
-from config.logconfig.logger_config import setup_logger
+from Model.Orm.key_history_orm import KeyHistoryORM
+from Config.database import SessionLocal
+from Config.Log.log_config import setup_logger
  
 logger = setup_logger()
  
