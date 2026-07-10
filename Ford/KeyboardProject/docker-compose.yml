@@ -1,0 +1,35 @@
+services: # Define os containers que vão rodar
+
+  mssql: # Serviço do banco de dados SQL Server
+    image: mcr.microsoft.com/mssql/server:2022-latest # Imagem oficial do SQL Server 2022
+    container_name: keyboardproject_mssql # Nome do container no Docker
+    restart: always # Reinicia automaticamente se o container cair
+    environment: # Variáveis de configuração do banco
+      ACCEPT_EULA: "Y" # Obrigatório aceitar os termos da Microsoft pra rodar a imagem
+      MSSQL_SA_PASSWORD: "KeyboardProject@123" # Senha do usuário admin (sa) — precisa ter maiúscula, minúscula, número e símbolo
+      MSSQL_PID: "Express" # Edição gratuita do SQL Server
+    ports:
+      - "1433:1433" # Expõe a porta do banco para a máquina local sua_maquina:container
+    volumes:
+      - mssql_data:/var/opt/mssql # Persiste os dados em disco
+
+  sqlpad: # Serviço da interface visual do banco (equivalente ao pgAdmin, mas pro SQL Server)
+    image: sqlpad/sqlpad:latest # Imagem oficial do SQLPad
+    container_name: keyboardproject_sqlpad # Nome do container no Docker
+    restart: always # Reinicia automaticamente se o container cair
+    environment: # Credenciais de acesso à interface web
+      SQLPAD_ADMIN: admin@admin.com # Email para login
+      SQLPAD_ADMIN_PASSWORD: admin123 # Senha para login
+      SQLPAD_APP_LOG_LEVEL: warn
+      SQLPAD_WEB_LOG_LEVEL: warn
+    ports:
+      - "8081:3000" # Acessa o SQLPad em localhost:8081
+    volumes:
+      - sqlpad_data:/var/lib/sqlpad # Persiste as conexões/queries salvas
+    depends_on:
+      - mssql # Garante que o mssql sobe antes do sqlpad
+
+volumes:
+  mssql_data: # Volume persistente para não perder os dados do banco
+  sqlpad_data: # Volume persistente para não perder configurações do SQLPad
+  # Docker cria um espaço em disco para guardar os dados
